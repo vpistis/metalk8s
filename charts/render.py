@@ -290,6 +290,9 @@ def main():
             "--values",
             args.values,
             "--include-crds",
+            # Used by ServiceMonitor
+            "--api-versions",
+            "monitoring.coreos.com/v1",
             args.path,
         ]
     )
