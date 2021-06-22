@@ -190,6 +190,9 @@ IMGS_PER_REPOSITORY: Dict[str, List[str]] = {
     constants.DOCKER_REPOSITORY: [
         "nginx",
     ],
+    constants.FLUENT_REPOSITORY: [
+        "fluent-bit",
+    ],
     constants.GOOGLE_REPOSITORY: [
         "etcd",
         "kube-apiserver",
@@ -201,7 +204,6 @@ IMGS_PER_REPOSITORY: Dict[str, List[str]] = {
     constants.GRAFANA_REPOSITORY: [
         "grafana",
         "loki",
-        "fluent-bit-plugin-loki",
     ],
     constants.INGRESS_REPOSITORY: [
         "nginx-ingress-controller",
