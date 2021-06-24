@@ -138,7 +138,7 @@ spec:
             port: http
         resources:
           limits:
-            memory: 100Mi
+            memory: 300Mi
           requests:
             cpu: 100m
             memory: 100Mi

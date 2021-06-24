@@ -41,12 +41,12 @@ Create fluent-bit ConfigMap:
                 Path           /var/log/containers/*.log
                 Parser         container
                 DB             /run/fluent-bit/flb_kube.db
-                Mem_Buf_Limit  5MB
+                Mem_Buf_Limit  50MB
             [INPUT]
                 Name           systemd
                 Tag            host.*
                 DB             /run/fluent-bit/flb_journal.db
-                Mem_Buf_Limit  5MB
+                Mem_Buf_Limit  50MB
                 Strip_Underscores On
             [FILTER]
                 Name           kubernetes
