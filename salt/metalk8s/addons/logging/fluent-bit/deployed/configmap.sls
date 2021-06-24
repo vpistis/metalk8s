@@ -35,6 +35,8 @@ Create fluent-bit ConfigMap:
                 Daemon         Off
                 Log_Level      warn
                 Parsers_File   custom_parsers.conf
+                Storage.path   /run/fluent-bit/
+                Storage.backlog.mem_limit  50MB
             [INPUT]
                 Name           tail
                 Tag            kube.*
@@ -42,11 +44,13 @@ Create fluent-bit ConfigMap:
                 Parser         container
                 DB             /run/fluent-bit/flb_kube.db
                 Mem_Buf_Limit  50MB
+                Storage.type   filesystem
             [INPUT]
                 Name           systemd
                 Tag            host.*
                 DB             /run/fluent-bit/flb_journal.db
                 Mem_Buf_Limit  50MB
+                Storage.type   filesystem
                 Strip_Underscores On
             [FILTER]
                 Name           kubernetes
@@ -127,6 +131,7 @@ Create fluent-bit ConfigMap:
                 Auto_Kubernetes_Labels false
                 Line_Format    json
                 Log_Level      warn
+                storage.total_limit_size 50MB
             [Output]
                 Name           loki
                 Match          host.*
@@ -137,6 +142,7 @@ Create fluent-bit ConfigMap:
                 Label_Keys     $hostname, $unit
                 Line_Format    json
                 Log_Level      warn
+                storage.total_limit_size 50MB
 {%- endfor %}
           custom_parsers.conf: |-
             [PARSER]
