@@ -3,6 +3,9 @@
 
 ### Enhancements
 
+- Bump Salt version to 3004
+  (PR[#XXXX](https://github.com/scality/metalk8s/pull/XXXX))
+
 - Bump Kubernetes version to
   [1.23.0](https://github.com/kubernetes/kubernetes/releases/tag/v1.23.0)
   (PR[#3634](https://github.com/scality/metalk8s/pull/3634))

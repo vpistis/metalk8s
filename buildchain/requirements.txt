@@ -5,10 +5,10 @@
 #    tox -e pip-compile
 #
 certifi==2021.10.8        # via requests
-charset-normalizer==2.0.10  # via requests
+charset-normalizer==2.0.11  # via requests
 cloudpickle==2.0.0        # via doit
 docker==4.1.0             # via -r buildchain/requirements.in
-doit==0.34.0              # via -r buildchain/requirements.in
+doit==0.34.1              # via -r buildchain/requirements.in
 idna==3.3                 # via requests
 pyyaml==5.3.1             # via -r buildchain/requirements.in
 requests==2.27.1          # via docker
