@@ -252,6 +252,23 @@ class Metalk8sTestCase(TestCase, mixins.LoaderModuleMockMixin):
             else:
                 self.assertEqual(metalk8s.get_archives(archives), result)
 
+    @utils.parameterized_from_cases(YAML_TESTS_CASES["get_mounted_archives"])
+    def test_get_mounted_archives(self, mounts, logs, result):
+        """Tests the result of `get_mounted_archives` function."""
+        mount_active_mock = MagicMock(return_value=mounts)
+
+        def infos(archive):
+            mount = next(m for m in mounts.values() if m.get("alt_device") == archive)
+            raise_msg = mount.get("info_raises")
+            if raise_msg:
+                raise CommandExecutionError(raise_msg)
+            return mount.get("info_ret")
+
+        with patch.object(
+            metalk8s, "archive_info_from_product_txt", MagicMock(side_effect=infos)
+        ), patch.dict(metalk8s.__salt__, {"mount.active": mount_active_mock}):
+            self.assertEqual(metalk8s.get_mounted_archives(), result)
+
     @utils.parameterized_from_cases(YAML_TESTS_CASES["check_pillar_keys"])
     def test_check_pillar_keys(
         self,

@@ -15,6 +15,10 @@
   `metalk8s-utils` container
   (PR[#3773](https://github.com/scality/metalk8s/pull/3773))
 
+- Add a `-r`/`--rm-archive` option to the `iso-manager.sh` script, allowing to
+  remove MetalK8s ISOs from a cluster
+  (PR[#3730](https://github.com/scality/metalk8s/pull/3730))
+
 ### Removals
 
 - The `Statefulsets` Grafana dashboard has been removed
@@ -23,6 +27,13 @@
 - Remove the [`jnettop`](https://sourceforge.net/projects/jnettop/) tool from
   the `metalk8s-utils` container
   (PR[#3773](https://github.com/scality/metalk8s/pull/3773))
+
+### Deprecations
+
+- The long name `--archive` for the "add" option to the `iso-manager.sh` script
+  is deprecated in favor of `--add-archive` (shorthand `-a` is still valid).
+  This deprecated option will be removed in MetalK8s 123.1.0
+  (PR[#3730](https://github.com/scality/metalk8s/pull/3730))
 
 ### Enhancements
 
