@@ -366,6 +366,7 @@ models:
               ip: 192.168.1.254
           workloadPlane:
             cidr: 192.168.2.0/24
+          services: 10.96.0.0/16
         ca:
           minion: \"bootstrap\"
         archives:
