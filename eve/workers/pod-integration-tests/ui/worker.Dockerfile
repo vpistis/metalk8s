@@ -33,9 +33,9 @@ USER eve
 # Pre-install Cypress to save it in cache
 WORKDIR /tmp
 COPY package-lock.json ./
-RUN npm install --no-save --no-package-lock har-validator@$(node -p \
+RUN npm install --no-save --no-package-lock --legacy-peer-deps har-validator@$(node -p \
         -e "require('./package-lock.json').dependencies['har-validator'].version" \
-    ) && npm install --no-save --no-package-lock cypress@$(node -p \
+    ) && npm install --no-save --no-package-lock --legacy-peer-deps cypress@$(node -p \
         -e "require('./package-lock.json').dependencies.cypress.version" \
     )
 

@@ -1240,7 +1240,7 @@ stages:
           command: |
             PKGS="har-validator cypress cypress-cucumber-preprocessor cypress-wait-until @testing-library/cypress"
             for pkg in $PKGS; do
-              npm install --no-save --no-package-lock $pkg@$(node -p \
+              npm install --no-save --no-package-lock --legacy-peer-deps $pkg@$(node -p \
                 -e "require('./package-lock.json').dependencies['$pkg'].version" \
               ) || exit 1
             done
