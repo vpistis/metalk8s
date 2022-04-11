@@ -1334,6 +1334,7 @@ stages:
           workdir: build/ui
           command: >
             npm ci --prefer-offline --no-audit
+          timeout: 14400
           haltOnFailure: true
       - ShellCommand:
           name: Run all UI unit tests
@@ -1390,6 +1391,7 @@ stages:
           workdir: build/shell-ui
           command: >
             npm ci --prefer-offline --no-audit
+          timeout: 14400
           haltOnFailure: true
       - ShellCommand:
           name: Run all Shell UI unit tests
@@ -1432,6 +1434,7 @@ stages:
           workdir: build/tools/crd-client-generator-js
           command: >
             npm ci --prefer-offline --no-audit
+          timeout: 14400
           haltOnFailure: true
       - ShellCommand:
           name: Run all CRD client generator unit tests
