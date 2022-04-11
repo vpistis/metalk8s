@@ -34,7 +34,7 @@ COPY package.json package-lock.json /home/node/
 
 RUN npm config set unsafe-perm true && npm ci
 # CP libstdc++.so.6 to /lib64 to workarround https://github.com/Automattic/node-canvas/issues/1796
-RUN cp node_modules/canvas/build/Release/libstdc++.so.6 /lib64
+RUN cp node_modules/canvas/build/Release/lib* /lib64
 
 COPY index-template.html webpack.*.js babel.config.js .flowconfig /home/node/
 COPY public /home/node/public/
