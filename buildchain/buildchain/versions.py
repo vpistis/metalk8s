@@ -258,8 +258,8 @@ CONTAINER_IMAGES: Tuple[Image, ...] = (
     ),
     Image(
         name="fluent-bit",
-        version="1.8.12",
-        digest="sha256:35de7f8e4cf845c060d3feb09e19254177993537dfb7b8a06a8ba5748e6b8551",
+        version="1.9.4",
+        digest="sha256:be7c4856f7838efd7fb37c1e217199ba577b2c582442fad0e60c45afa52f5234",
     ),
 )
 
