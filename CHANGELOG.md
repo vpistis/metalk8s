@@ -24,6 +24,10 @@
   the `metalk8s-utils` container
   (PR[#3773](https://github.com/scality/metalk8s/pull/3773))
 
+- Remove the `calico-cni-plugin` RPM packages and instead relies on
+  the `calico-cni` container to deploy the CNI binaries on the host
+  (PR[#xx](https://github.com/scality/metalk8s/pull/xx))
+
 ### Enhancements
 
 - Bump Kubernetes version to
