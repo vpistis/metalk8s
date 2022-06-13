@@ -2183,6 +2183,19 @@ stages:
             # time to stabilize (e.g.: Rolling update of some DaemonSet that may take
             # some times, especially in multi node context)
             STABILIZATION_TIME: "240"
+      # --- Remove version N-1 ---
+      - ShellCommand:
+          name: Remove previous ISO before running tests
+          command: >
+            ISO_PATH=$(
+            [[%(prop:nodes_count:-0)s -eq 0]] && echo "metalk8s.iso"
+            || echo "/archives/metalk8s.iso") &&
+            ssh -F ssh_config bootstrap "
+            sudo bash
+            /srv/scality/metalk8s-%(prop:metalk8s_version)s/iso-manager.sh
+            --rm-archive \"\$(readlink -f \"${ISO_PATH}\")\" --verbose"
+          workdir: *terraform_workdir
+          haltOnFailure: true
       # --- Test version N ---
       - ShellCommand: *git_pull_ssh
       - ShellCommand:
